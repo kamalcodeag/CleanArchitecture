@@ -1,4 +1,5 @@
 using CleanArch.Infra.Data.Context;
+using CleanArch.Infra.IoC.Container;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +29,6 @@ namespace CleanArch.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -38,6 +38,9 @@ namespace CleanArch.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("ChannelDBConnection"));
             });
+
+            //Configuration Infra.IoC services
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,6 +63,11 @@ namespace CleanArch.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            DependencyContainer.RegisterServices(services);
         }
     }
 }
