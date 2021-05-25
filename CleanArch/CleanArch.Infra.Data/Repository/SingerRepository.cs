@@ -18,7 +18,7 @@ namespace CleanArch.Infra.Data.Repository
         }
         public IEnumerable<Singer> GetSingers()
         {
-            throw new NotImplementedException();
+            return _channelDBContext.Singers;
         }
     }
 }

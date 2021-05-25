@@ -18,7 +18,7 @@ namespace CleanArch.Infra.Data.Repository
         }
         public IEnumerable<Track> GetTracks()
         {
-            throw new NotImplementedException();
+            return _channelDBContext.Tracks;
         }
     }
 }
