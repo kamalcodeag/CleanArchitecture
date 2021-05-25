@@ -9,6 +9,6 @@ namespace CleanArch.Application.Interfaces
 {
     public interface ITrackService
     {
-        IEnumerable<TrackViewModel> GetTracks();
+        TrackViewModel GetTracks();
     }
 }

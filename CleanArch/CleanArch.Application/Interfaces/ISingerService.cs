@@ -9,6 +9,6 @@ namespace CleanArch.Application.Interfaces
 {
     public interface ISingerService
     {
-        IEnumerable<SingerViewModel> GetSingers();
+        SingerViewModel GetSingers();
     }
 }
